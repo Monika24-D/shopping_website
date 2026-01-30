@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShopEase – Online Shopping</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #fce4ec, #e3f2fd, #ffffff);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  background: white;
+  width: 75%;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.slide.active {
+  display: block;
+}
+
+h1, h2 {
+  color: #1976d2;
+}
+
+.banner {
+  background: #f48fb1;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 60%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d47a1;
+}
+
+.controls {
+  margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <h1>ShopEase</h1>
+    <p>Your one-stop destination for fashion & lifestyle</p>
+    <div class="banner">Big Deals • New Arrivals • Trending</div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <h2>Categories</h2>
+    <div class="grid">
+      <div class="card">Men</div>
+      <div class="card">Women</div>
+      <div class="card">Electronics</div>
+      <div class="card">Accessories</div>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <h2>Featured Products</h2>
+    <div class="grid">
+      <div class="card">Smart Watch<br>₹1999</div>
+      <div class="card">Handbag<br>₹1499</div>
+      <div class="card">Shoes<br>₹2499</div>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide">
+    <h2>Shopping Cart</h2>
+    <p>Smart Watch – ₹1999</p>
+    <p>Total Amount: ₹1999</p>
+    <button>Add to Cart</button>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide">
+    <h2>Checkout</h2>
+    <input type="text" placeholder="Full Name"><br>
+    <input type="text" placeholder="Address"><br>
+    <input type="text" placeholder="Phone Number"><br>
+    <button>Place Order</button>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide">
+    <h2>Navigation Menu</h2>
+    <p>Home | Products | Cart | Orders | Profile</p>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="slide">
+    <h2>Search Products</h2>
+    <input type="text" placeholder="Search for products">
+  </div>
+
+  <!-- Slide 8 -->
+  <div class="slide">
+    <h2>Customer Reviews</h2>
+    <p>⭐⭐⭐⭐⭐ Excellent quality</p>
+    <p>⭐⭐⭐⭐ Fast delivery</p>
+  </div>
+
+  <!-- Slide 9 -->
+  <div class="slide">
+    <h2>Order History</h2>
+    <p>Order #1023 – Delivered</p>
+    <p>Order #1045 – In Transit</p>
+  </div>
+
+  <!-- Slide 10 -->
+  <div class="slide">
+    <h2>Product Details</h2>
+    <p>Smart Watch</p>
+    <p>Bluetooth • Fitness Tracking • Stylish Design</p>
+    <p>Price: ₹1999</p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="controls">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+</div>
+
+<script>
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function nextSlide() {
+  if (current < slides.length - 1) {
+    current++;
+    showSlide(current);
+  }
+}
+
+function prevSlide() {
+  if (current > 0) {
+    current--;
+    showSlide(current);
+  }
+}
+
+showSlide(current);
+</script>
+
+</body>
+</html>
